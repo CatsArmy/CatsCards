@@ -1,0 +1,17 @@
+{
+	"name":"CatsCards",
+	"author_name":"CatsArmy",
+    	"version_number":"1.0.0",
+	"website_url":"https://github.com/CatsArmy",
+	"displayName":"Cats Cards",
+	"description":"Now featuring the TRT Lightsaber melee weapon. this card mod will only add high quality cards with custom effects and or weapons/gimicks",
+	"dependencies": [
+		"willis81808-UnboundLib-3.2.13",
+		"Root-CardThemeLib-1.1.7",
+		"willreuploadscuzheruinedstuff-PlayerActionsHelper-0.0.1",
+		"Root-RarityLib-1.2.8",
+		"Pykess-ModdingUtils-0.4.8",
+		"CrazyCoders-RarityBundle-0.1.0",
+		"Pykess-CardChoiceSpawnUniqueCardPatch-0.1.10"
+	]
+}

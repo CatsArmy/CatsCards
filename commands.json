@@ -1,0 +1,34 @@
+{
+  "commands": {
+    "publish": {
+      "fileName": "powershell.exe",
+      "workingDirectory": ".",
+      "arguments": "-ExecutionPolicy Bypass -NonInteractive -File Assets\\_CatsCards\\Code\\CatsCards\\publish.ps1"
+    },
+    "publish 1144796442": {
+      "fileName": "powershell.exe",
+      "workingDirectory": ".",
+      "arguments": "-ExecutionPolicy Bypass -NonInteractive -File Assets\\_CatsCards\\Code\\CatsCards\\publish.ps1"
+    },
+    "publish 1432523113": {
+      "fileName": "powershell.exe",
+      "workingDirectory": ".",
+      "arguments": "-ExecutionPolicy Bypass -NonInteractive -File Assets\\_CatsCards\\Code\\CatsCards\\publish.ps1"
+    },
+    "publish -828841526": {
+      "fileName": "powershell.exe",
+      "workingDirectory": ".",
+      "arguments": "-ExecutionPolicy Bypass -NonInteractive -File Assets\\_CatsCards\\Code\\CatsCards\\publish.ps1"
+    },
+    "publish 943774381": {
+      "fileName": "powershell.exe",
+      "workingDirectory": ".",
+      "arguments": "-ExecutionPolicy Bypass -NonInteractive -File Assets\\_CatsCards\\Code\\CatsCards\\publish.ps1"
+    }
+  },
+  "-vs-binding": {
+    "AfterBuild": [
+      "publish"
+    ]
+  }
+}

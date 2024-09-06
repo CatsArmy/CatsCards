@@ -1,0 +1,133 @@
+ManifestFileVersion: 0
+CRC: 2955247187
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: 4e11f6ff3da2e1f6f79e35a9ff7ba1bb
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: eb06ad614b9c232c16823eaa3b2919f9
+HashAppended: 0
+ClassTypes:
+- Class: 1
+  Script: {instanceID: 0}
+- Class: 4
+  Script: {instanceID: 0}
+- Class: 21
+  Script: {instanceID: 0}
+- Class: 28
+  Script: {instanceID: 0}
+- Class: 48
+  Script: {instanceID: 0}
+- Class: 60
+  Script: {instanceID: 0}
+- Class: 61
+  Script: {instanceID: 0}
+- Class: 83
+  Script: {instanceID: 0}
+- Class: 114
+  Script: {fileID: -758139285, guid: 7b103cb0db623c84bbfc260cac5acf8d, type: 3}
+- Class: 114
+  Script: {fileID: 599046829, guid: 7b103cb0db623c84bbfc260cac5acf8d, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: 2cdb0ac013f5c304fa4980ba37f3e2e1, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: 516cd0d0765d5344c88439a6a9f7a752, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: 36b8080194ccf1b4d98073c07755e25c, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: 25a2d191570291a4c8ca26547d482857, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: 8ecb70e12bb06a44286f4bb21d035487, type: 3}
+- Class: 114
+  Script: {fileID: 1980459831, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+- Class: 114
+  Script: {fileID: 1301386320, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+- Class: 114
+  Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+- Class: 114
+  Script: {fileID: 1679637790, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+- Class: 114
+  Script: {fileID: -1200242548, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+- Class: 114
+  Script: {fileID: 1297475563, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: 90250c53192a432439a701bce4a9d422, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: 4eb7cf041e856c7498f18b9042ec4f95, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: 7fc1bd250d829a4488a92e98533742f8, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: 14358d751784b9149a88bd78271792a8, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: 939a6a4623cba494e898c7ee0fd73ebf, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: 18102a174faa10f4cb2e050cc600c733, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: 131e402791378f34596dbfbda6edfbb4, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: 5409aae735f3e7f47a0d1c32f4cef7a1, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: d09e61d8798559c41879e0963ec23e72, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: 0a7455d82e3521142be110549e6130ef, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: bafaf4e9b63575e45a27e3cc3925dabe, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: 7856b36abd6a1884788657fb4ba1b419, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: 334723ba7dd2cc0459c94202a1e8499e, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: a89d10daf3634254bb2e6b79b9ee4280, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: 6e5adadaac54b1e4ea94b00596619b1b, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: 9967263b59df354459a42c216b7c2ac7, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: 5f27ffeb47ddf814dae4b139308df6b0, type: 3}
+- Class: 114
+  Script: {fileID: -1283557461, guid: cc8a520cdc1a71048ac77742d0ea6366, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: 0b60005c27cf7f74da7d625fe205cd5b, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: 1e098a3d4948edf428bf9babe2cf96b1, type: 3}
+- Class: 114
+  Script: {fileID: 786953031, guid: fbb25f4d567ecbd439bfbdcfed7eb232, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: ecf94adeed15046478b869a4bbf734af, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: a4b032fe9cba4be49be5bb256561788b, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: f92295fe49b73614591f58e9ea25e35f, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: 30f2e56f47b40d546b1b12706bf873a2, type: 3}
+- Class: 115
+  Script: {instanceID: 0}
+- Class: 212
+  Script: {instanceID: 0}
+- Class: 213
+  Script: {instanceID: 0}
+- Class: 222
+  Script: {instanceID: 0}
+- Class: 223
+  Script: {instanceID: 0}
+- Class: 224
+  Script: {instanceID: 0}
+- Class: 225
+  Script: {instanceID: 0}
+Assets:
+- Assets/_CatsCards/Cards/Melee/TrT_Lightsaber.prefab
+- Assets/_CatsCards/Cards/Catagories/Melee.asset
+- Assets/_CatsCards/Cards/MonoBehaviors/Melee/VFX/PullOutSaber.ogg
+- Assets/_CatsCards/Art/Card Art/C_LightSaber.prefab
+- Assets/_CatsCards/Art/Texture2D/Lightsaber_Blade.png
+- Assets/_CatsCards/Art/Texture2D/Lightsaber_art.png
+- Assets/_CatsCards/Cards/MonoBehaviors/Melee/VFX/PullOutSaber_SC.asset
+- Assets/_CatsCards/Cards/MonoBehaviors/Melee/Lightsaber.prefab
+- Assets/_CatsCards/Cards/ModCards.prefab
+- Assets/_CatsCards/Cards/MonoBehaviors/Melee/VFX/PullOutSaber_SE.asset
+- Assets/_CatsCards/Art/Texture2D/Lightsaber_Handle.png
+- Assets/_CatsCards/Cards/MonoBehaviors/Melee/A_Lightsaber.prefab
+Dependencies: []
