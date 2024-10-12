@@ -1,5 +1,4 @@
 ﻿using Lightsaber.Extensions;
-using PlayerActionsHelper.Extensions;
 using UnboundLib;
 using UnboundLib.Networking;
 using UnityEngine;
@@ -12,7 +11,6 @@ namespace Lightsaber
     {
         public UnityEvent TriggerVFX;
         public LoadAsset asset;
-        //public GameObject OnHitEffect;
 
         internal A_HoldableHandler Handler;
         internal GameObject Weapon;
@@ -71,11 +69,14 @@ namespace Lightsaber
             NetworkingManager.RPC(typeof(A_HoldableObject), nameof(RPCA_Switch_To_Holdable),
                 this.Player.playerID, true, false);
         }
-        //private bool IsClient { get => Player.data.view.IsMine; }
 
         private void Update()
         {
             if (this.Player is null)
+                return;
+
+            bool IsClient = this.Player.data.view.IsMine;
+            if (!IsClient)
                 return;
 
             if (this.Player.data.dead)
@@ -85,24 +86,26 @@ namespace Lightsaber
             this.SwitchTimer -= TimeHandler.deltaTime;
             if (this.SwitchTimer > ResetSwitchTimer)
                 return;
-            bool IsClient = this.Player.data.view.IsMine;
-
-            if (!IsClient)
-                return;
 
             PlayerActions playerActions = this.Player.data.playerActions;
-            if (playerActions is null)
+            var value = playerActions.GetAdditionalData().SwitchHoldable.WasPressed;
+
+            if (value)
                 return;
 
-            if (playerActions.ActionWasPressed(Constants.SwitchHoldable))
-                return;
-
+            var holdableObject = this;
+            holdableObject.SwitchTimer = holdableObject.IsOut ? ResetSwitchTimer : SwitchDelay;
+            holdableObject.IsOut = !holdableObject.IsOut;
+            if (holdableObject.IsOut)
+            {
+                holdableObject.TriggerVFX.Invoke();
+            }
             NetworkingManager.RPC(typeof(A_HoldableObject), nameof(RPCA_Switch_To_Holdable),
                 this.Player.playerID, this.IsOut, true);
         }
 
         [UnboundRPC]
-        internal static void RPCA_Switch_To_Holdable(int stabbingPlayerID, bool holdableObj, bool playSFX = false)
+        internal static void RPCA_Switch_To_Holdable(int stabbingPlayerID, bool holdableObj, bool playSFX)
         {
             MakeGunHoldable(stabbingPlayerID, holdableObj, playSFX);
         }
@@ -112,7 +115,7 @@ namespace Lightsaber
             transform.localPosition = new Vector3(transform.localPosition.x, transform.localPosition.y, hide ? -10000f : 0f);
         }
 
-        internal static void MakeGunHoldable(int playerID, bool holdableObj, bool playSFX)
+        internal static void MakeGunHoldable(int playerID, bool holdableObj, bool playSFX = false)
         {
             Player player = PlayerManager.instance.GetPlayerWithID(playerID);
             if (player is null)
@@ -121,14 +124,12 @@ namespace Lightsaber
             }
 
             A_HoldableObject holdableObject = player.GetComponentInChildren<A_HoldableObject>();
-            holdableObject.SwitchTimer = holdableObject.IsOut ? ResetSwitchTimer : SwitchDelay;
-            holdableObject.IsOut = !holdableObject.IsOut;
-
-            if (holdableObject.IsOut && playSFX)
-            {
-                holdableObject.TriggerVFX.Invoke();
-            }
-
+            //holdableObject.SwitchTimer = holdableObject.IsOut ? ResetSwitchTimer : SwitchDelay;
+            //holdableObject.IsOut = !holdableObject.IsOut;
+            //if (holdableObject.IsOut)
+            //{
+            //    holdableObject.TriggerVFX.Invoke();
+            //}
             A_HoldableHandler Handler = holdableObject.gameObject.GetComponent<A_HoldableHandler>();
             Handler.Weapon.SetActive(holdableObj);
             GameObject spring = player.GetSpring();
@@ -146,11 +147,12 @@ namespace Lightsaber
             {
                 return;
             }
-
-            RPCA_Switch_To_Holdable(this.Player.playerID, false);
-            GameObject Weapon = this.Player.GetSpring().transform.Find(Constants.Lightsaber)?.gameObject;
-            GameObject.Destroy(Weapon);
-            GameObject.Destroy(this.Weapon);
+            NetworkingManager.RPC(typeof(A_HoldableObject), nameof(RPCA_Switch_To_Holdable),
+                this.Player.playerID, false, false);
+            GameObject.Destroy(Handler);
+            //GameObject Weapon = this.Player.GetSpring().transform.Find(Constants.Lightsaber)?.gameObject;
+            //GameObject.Destroy(Weapon);
+            //GameObject.Destroy(this.Weapon);
         }
     }
 }

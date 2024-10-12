@@ -12,9 +12,9 @@ namespace Lightsaber
         internal ObjectMirror ObjectMirror;
         internal ObjectCollider ObjectCollider;
         internal BladeColor BladeColor;
+        internal GameObject Collider;
         internal GameObject Weapon;
         internal GameObject Blade;
-        internal GameObject Collider;
 
         /// <param name="player">the player who got the weapon</param>
         /// <param name="WeaponName">a backup string of the unity object of the weapon to Init the weapon incase 
@@ -48,6 +48,16 @@ namespace Lightsaber
             this.ObjectCollider.holdableObject = HoldableObject;
             this.BladeColor.holdableObject = HoldableObject;
             return this;
+        }
+        public void OnDestroy()
+        {
+            GameObject.Destroy(ObjectSlash);
+            GameObject.Destroy(ObjectMirror);
+            GameObject.Destroy(ObjectCollider);
+            GameObject.Destroy(BladeColor);
+            GameObject.Destroy(Collider);
+            GameObject.Destroy(Weapon);
+            GameObject.Destroy(Blade);
         }
     }
 }

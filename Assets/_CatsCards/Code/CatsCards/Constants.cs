@@ -3,7 +3,7 @@
     public static class Constants
     {
         public const string PlayerObjectCollider = nameof(PlayerObjectCollider);
-        public const string SwitchHoldable = nameof(SwitchHoldable);
+        //public const string SwitchHoldable = nameof(SwitchHoldable);
         public const string Lightsaber = nameof(Lightsaber);
         public const string Damagable = nameof(Damagable);
         public const string ModCards = nameof(ModCards);

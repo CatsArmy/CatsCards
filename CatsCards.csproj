@@ -57,6 +57,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="GlobalSuppressions.cs" />
     <EmbeddedResource Include="Assets\AssetBundles\assetbundle" />
     <Compile Include="Assets\_CatsCards\Code\CatsCards\CardHolder.cs" />
     <Compile Include="Assets\_CatsCards\Code\CatsCards\CatsCards.cs" />
