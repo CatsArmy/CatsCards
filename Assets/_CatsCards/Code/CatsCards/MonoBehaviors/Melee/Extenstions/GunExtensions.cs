@@ -1,7 +1,7 @@
 ﻿using System.Runtime.CompilerServices;
 using UnityEngine;
 
-namespace Lightsaber.Extensions
+namespace CatsCards.Lightsaber.Extensions
 {
     public class GunAdditionalData
     {

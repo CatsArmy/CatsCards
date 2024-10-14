@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Linq;
 
-namespace Lightsaber.Extensions
+namespace CatsCards.Lightsaber.Extensions
 {
     public static class PlayerManagerExtensions
     {

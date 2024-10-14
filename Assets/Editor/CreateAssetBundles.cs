@@ -1,5 +1,5 @@
-﻿using UnityEditor;
-using System.IO;
+﻿using System.IO;
+using UnityEditor;
 
 public class CreateAssetBundles
 {
@@ -14,7 +14,7 @@ public class CreateAssetBundles
         System.IO.DirectoryInfo di = new DirectoryInfo(assetBundleDirectory);
         foreach (FileInfo file in di.GetFiles())
         {
-            file.Delete(); 
+            file.Delete();
         }
         BuildPipeline.BuildAssetBundles(assetBundleDirectory,
                                         BuildAssetBundleOptions.None,

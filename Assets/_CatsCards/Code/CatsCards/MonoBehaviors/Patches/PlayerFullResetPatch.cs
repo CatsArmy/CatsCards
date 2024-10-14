@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Diagnostics.CodeAnalysis;
 using HarmonyLib;
-using Lightsaber;
+using CatsCards.Lightsaber;
 //using DoggoBonk.MonoBehaviors.Squish.Lanky;
 using UnityEngine;
 
@@ -32,8 +32,6 @@ namespace CatsCards.MonoBehaviors.SquishPlayer
             //__instance.gameObject.transform.GetChild(3).gameObject.GetComponentInChildren<LegRaycasters>().force = 1000f;
 
             GameObject.Destroy(__instance.GetComponentInChildren<A_HoldableObject>());
-
-
         }
 
 

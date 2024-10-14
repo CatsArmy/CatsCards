@@ -1,15 +1,10 @@
-﻿using RarityLib.Utils;
-using UnityEngine;
+﻿using UnityEngine;
 
 namespace CatsCards
 {
     internal class RarityAdder : MonoBehaviour
     {
         public Rarity rarity = Rarity.Common;
-        private void Start()
-        {
-            base.GetComponent<CardInfo>().rarity = RarityUtils.GetRarity($"{rarity}");
-        }
     }
     public enum Rarity
     {

@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace Lightsaber
+namespace CatsCards
 {
     public class LoadAsset : MonoBehaviour
     {
@@ -12,7 +12,7 @@ namespace Lightsaber
         }
         private static GameObject Instantiate(string ObjectName, Transform transform)
         {
-            GameObject Object = GameObject.Instantiate(CatsCards.CatsCards.assets.LoadAsset<GameObject>(ObjectName), transform);
+            GameObject Object = GameObject.Instantiate(CatsCards.assets.LoadAsset<GameObject>(ObjectName), transform);
             Object.name = ObjectName;
             return Object;
         }

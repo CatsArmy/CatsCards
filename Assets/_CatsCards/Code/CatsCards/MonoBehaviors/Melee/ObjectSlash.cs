@@ -1,14 +1,17 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
-using Lightsaber.Extensions;
+using CatsCards.Lightsaber.Extensions;
 using UnboundLib;
+using UnboundLib.GameModes;
 using UnboundLib.Networking;
 using UnityEngine;
 
-namespace Lightsaber
+namespace CatsCards.Lightsaber
 {
     public class ObjectSlash : MonoBehaviour
     {
+        public static bool CanAttack = false;
+
         internal A_HoldableObject holdableObject;
         internal GameObject OnHitEffect;
 
@@ -185,7 +188,7 @@ namespace Lightsaber
                 return;
 
             HitColliders.Add(collider2D);
-            CatsCards.CatsCards.instance.ExecuteAfterSeconds(slashAnimationDuration, () => { HitColliders.Remove(collider2D); });
+            CatsCards.instance.ExecuteAfterSeconds(slashAnimationDuration, () => { HitColliders.Remove(collider2D); });
             Vector3 position = this.gameObject.transform.position;
             if (collider2D.GetComponentInParent<Player>())
             {
@@ -209,6 +212,9 @@ namespace Lightsaber
         internal void HandlePlayer(Player target, Collision2D collision)
         {
             if (!isSlashing)
+                return;
+
+            if (!CanAttack)
                 return;
 
             NetworkingManager.RPC(typeof(ObjectSlash), nameof(RPCA_SlashPlayer), this.Player.playerID, target.playerID);
@@ -267,6 +273,18 @@ namespace Lightsaber
                 slashedPlayer.transform.position, Color.white,
                 gun.transform?.GetChild(1)?.Find(Constants.Lightsaber)?.gameObject,
                 slashingPlayer, false, true, true);
+        }
+
+        public static IEnumerator Enable(IGameModeHandler gm)
+        {
+            CanAttack = true;
+            yield break;
+        }
+
+        public static IEnumerator Disable(IGameModeHandler gm)
+        {
+            CanAttack = false;
+            yield break;
         }
     }
 }

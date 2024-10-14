@@ -1,8 +1,8 @@
-using Lightsaber.Extensions;
+using CatsCards.Lightsaber.Extensions;
 using UnboundLib;
 using UnityEngine;
 
-namespace Lightsaber
+namespace CatsCards.Lightsaber
 {
 
     public class A_HoldableHandler : MonoBehaviour
@@ -24,7 +24,7 @@ namespace Lightsaber
             //if weapon failed to load reload it
             if (HoldableObject.Weapon is null || HoldableObject.Weapon == null)
             {
-                HoldableObject.Weapon = Instantiate(CatsCards.CatsCards.assets.LoadAsset<GameObject>(WeaponName),
+                HoldableObject.Weapon = Instantiate(CatsCards.assets.LoadAsset<GameObject>(WeaponName),
                     player.GetSpring().transform);
                 //Remove the (Clone) part of the string as otherwise you would fail to find weapon
                 HoldableObject.Weapon.gameObject.name = WeaponName;

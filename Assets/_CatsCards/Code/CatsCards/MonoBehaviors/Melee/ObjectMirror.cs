@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace Lightsaber
+namespace CatsCards.Lightsaber
 {
     public class ObjectMirror : MonoBehaviour
     {

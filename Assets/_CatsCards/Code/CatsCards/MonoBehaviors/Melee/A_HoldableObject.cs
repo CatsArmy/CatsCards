@@ -1,15 +1,14 @@
-﻿using Lightsaber.Extensions;
+﻿using CatsCards.Lightsaber.Extensions;
 using UnboundLib;
 using UnboundLib.Networking;
 using UnityEngine;
 using UnityEngine.Events;
 
-namespace Lightsaber
+namespace CatsCards.Lightsaber
 {
-
     public class A_HoldableObject : MonoBehaviour
     {
-        public UnityEvent TriggerVFX;
+        public UnityEvent TriggerSFX;
         public LoadAsset asset;
 
         internal A_HoldableHandler Handler;
@@ -19,17 +18,18 @@ namespace Lightsaber
         private const float Volume = 1f;
         internal const float SwitchDelay = 0.25f;
         internal const float ResetSwitchTimer = 0f;
+
         internal float SwitchTimer
         {
             get;
             private set;
         } = 0f;
-        private float StabTimer = 0f;
         internal bool IsOut
         {
             get;
             private set;
         } = false;
+        private float StabTimer = 0f;
         private bool wasOut = false;
 
         private void Start()
@@ -41,28 +41,51 @@ namespace Lightsaber
             this.Weapon = this.asset.InstantiateObject(this.Player.GetSpring().transform);
             this.Handler = this.gameObject.GetOrAddComponent<A_HoldableHandler>().Initialize(this,
                 this.Player, Constants.Lightsaber);
+            this.Player.data.stats.objectsAddedToPlayer.Add(Weapon);
+            NetworkingManager.RPC(typeof(A_HoldableObject), nameof(RPCA_Switch_To_Holdable),
+                this.Player.playerID, true, false);
+            NetworkingManager.RPC(typeof(A_HoldableObject), nameof(RPCA_Switch_To_Holdable),
+                this.Player.playerID, false, false);
         }
 
         private void OnDisable()
         {
-            if (this.Player is null || !this.Player.data.view.IsMine)
+            if (this.Player is null)
                 return;
 
-            if (this.IsOut && !this.wasOut)
-            {
-                this.IsOut = false;
-                this.wasOut = true;
-                NetworkingManager.RPC(typeof(A_HoldableObject), nameof(RPCA_Switch_To_Holdable),
-                    this.Player.playerID, false, false);
-            }
+            bool IsClient = this.Player.data.view.IsMine;
+            if (!IsClient)
+                return;
+
+            if (!this.IsOut)
+                return;
+
+            if (this.wasOut)
+                return;
+
+            this.IsOut = false;
+            this.wasOut = true;
+            NetworkingManager.RPC(typeof(A_HoldableObject), nameof(RPCA_Switch_To_Holdable),
+                this.Player.playerID, false, false);
         }
 
         private void OnEnable()
         {
-            if (this.Player is null || !this.Player.data.view.IsMine || this.IsOut || !this.wasOut)
-            {
+            if (this.Player is null)
                 return;
-            }
+
+            bool IsClient = this.Player.data.view.IsMine;
+            if (!IsClient)
+                return;
+
+            if (this.Player.data.dead)
+                return;
+
+            if (this.IsOut)
+                return;
+
+            if (!this.wasOut)
+                return;
 
             this.IsOut = true;
             this.wasOut = false;
@@ -86,22 +109,12 @@ namespace Lightsaber
             this.SwitchTimer -= TimeHandler.deltaTime;
             if (this.SwitchTimer > ResetSwitchTimer)
                 return;
-
-            PlayerActions playerActions = this.Player.data.playerActions;
-            var value = playerActions.GetAdditionalData().SwitchHoldable.WasPressed;
-
-            if (value)
+            if (!this.Player.data.playerActions.GetAdditionalData().SwitchHoldable.WasPressed)
                 return;
-
-            var holdableObject = this;
-            holdableObject.SwitchTimer = holdableObject.IsOut ? ResetSwitchTimer : SwitchDelay;
-            holdableObject.IsOut = !holdableObject.IsOut;
-            if (holdableObject.IsOut)
-            {
-                holdableObject.TriggerVFX.Invoke();
-            }
+            this.SwitchTimer = this.IsOut ? ResetSwitchTimer : SwitchDelay;
+            this.IsOut = !this.IsOut;
             NetworkingManager.RPC(typeof(A_HoldableObject), nameof(RPCA_Switch_To_Holdable),
-                this.Player.playerID, this.IsOut, true);
+                this.Player.playerID, this.IsOut, this.IsOut);
         }
 
         [UnboundRPC]
@@ -122,14 +135,11 @@ namespace Lightsaber
             {
                 return;
             }
+            //Application.OpenURL("Rickroll"); 
 
             A_HoldableObject holdableObject = player.GetComponentInChildren<A_HoldableObject>();
-            //holdableObject.SwitchTimer = holdableObject.IsOut ? ResetSwitchTimer : SwitchDelay;
-            //holdableObject.IsOut = !holdableObject.IsOut;
-            //if (holdableObject.IsOut)
-            //{
-            //    holdableObject.TriggerVFX.Invoke();
-            //}
+            if (playSFX)
+                holdableObject.TriggerSFX.Invoke();
             A_HoldableHandler Handler = holdableObject.gameObject.GetComponent<A_HoldableHandler>();
             Handler.Weapon.SetActive(holdableObj);
             GameObject spring = player.GetSpring();
@@ -144,15 +154,11 @@ namespace Lightsaber
         private void OnDestroy()
         {
             if (this.Player is null)
-            {
                 return;
-            }
+
             NetworkingManager.RPC(typeof(A_HoldableObject), nameof(RPCA_Switch_To_Holdable),
                 this.Player.playerID, false, false);
             GameObject.Destroy(Handler);
-            //GameObject Weapon = this.Player.GetSpring().transform.Find(Constants.Lightsaber)?.gameObject;
-            //GameObject.Destroy(Weapon);
-            //GameObject.Destroy(this.Weapon);
         }
     }
 }

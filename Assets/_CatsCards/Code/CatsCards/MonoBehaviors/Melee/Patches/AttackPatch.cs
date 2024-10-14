@@ -1,7 +1,7 @@
 ﻿using HarmonyLib;
-using Lightsaber.Extensions;
+using CatsCards.Lightsaber.Extensions;
 
-namespace Lightsaber.Patches
+namespace CatsCards.Lightsaber.Patches
 {
     [HarmonyPatch(typeof(Gun))]
     internal class AttackPatch

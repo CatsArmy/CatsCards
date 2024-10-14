@@ -1,5 +1,5 @@
 ﻿//using HarmonyLib;
-//using Lightsaber;
+//using CatsCards.Lightsaber;
 //using UnityEngine;
 
 //namespace CatsCards.MonoBehaviors.Melee

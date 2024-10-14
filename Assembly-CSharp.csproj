@@ -1200,9 +1200,6 @@
  <Reference Include="Unity.Postprocessing.Runtime">
  <HintPath>D:/source/repos/Unity/Cats Cards/Assets/Scripts/dlls/Unity.Postprocessing.Runtime.dll</HintPath>
  </Reference>
- <Reference Include="PlayerActionsHelper">
- <HintPath>D:/source/repos/Unity/Cats Cards/Assets/Scripts/Mods/PlayerActionsHelper/PlayerActionsHelper.dll</HintPath>
- </Reference>
  <Reference Include="CatsCards">
  <HintPath>D:/source/repos/Unity/Cats Cards/Assets/_CatsCards/Thunderstore/CatsCards.dll</HintPath>
  </Reference>

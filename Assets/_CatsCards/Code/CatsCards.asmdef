@@ -28,7 +28,7 @@
         "PhotonChat.dll",
         "PhotonWebSocket.dll",
         "SonigonAudioEngine.Runtime.dll",
-        "PlayerActionsHelper.dll"
+        "Steamworks.NET.dll"
     ],
     "autoReferenced": true,
     "defineConstraints": []

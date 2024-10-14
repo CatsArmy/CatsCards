@@ -1,4 +1,4 @@
-﻿namespace Lightsaber
+﻿namespace CatsCards
 {
     public static class Constants
     {

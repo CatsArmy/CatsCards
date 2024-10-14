@@ -1,11 +1,11 @@
-﻿using Lightsaber.Extensions;
+﻿using CatsCards.Lightsaber.Extensions;
 using UnboundLib;
 using UnboundLib.Extensions;
 using UnboundLib.Networking;
 using UnboundLib.Utils;
 using UnityEngine;
 
-namespace Lightsaber
+namespace CatsCards.Lightsaber
 {
     internal class BladeColor : MonoBehaviour
     {

@@ -46,7 +46,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ecf94adeed15046478b869a4bbf734af, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  TriggerVFX:
+  TriggerSFX:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 6274571842894168970}
@@ -61,7 +61,6 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
   asset: {fileID: 114065091331177796}
-  OnHitEffect: {fileID: 0}
 --- !u!114 &6274571842894168970
 MonoBehaviour:
   m_ObjectHideFlags: 0

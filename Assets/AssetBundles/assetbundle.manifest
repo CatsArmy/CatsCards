@@ -1,12 +1,12 @@
 ManifestFileVersion: 0
-CRC: 2955247187
+CRC: 1429000567
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: 4e11f6ff3da2e1f6f79e35a9ff7ba1bb
+    Hash: aa7efab5a80a9b6df3b0b1e2b75e9de5
   TypeTreeHash:
     serializedVersion: 2
-    Hash: eb06ad614b9c232c16823eaa3b2919f9
+    Hash: 99bbddda5a8b99263ec16d471c7686a3
 HashAppended: 0
 ClassTypes:
 - Class: 1
@@ -120,14 +120,14 @@ ClassTypes:
 Assets:
 - Assets/_CatsCards/Cards/Melee/TrT_Lightsaber.prefab
 - Assets/_CatsCards/Cards/Catagories/Melee.asset
-- Assets/_CatsCards/Cards/MonoBehaviors/Melee/VFX/PullOutSaber.ogg
+- Assets/_CatsCards/Cards/MonoBehaviors/Melee/SFX/PullOutSaber.ogg
 - Assets/_CatsCards/Art/Card Art/C_LightSaber.prefab
 - Assets/_CatsCards/Art/Texture2D/Lightsaber_Blade.png
 - Assets/_CatsCards/Art/Texture2D/Lightsaber_art.png
-- Assets/_CatsCards/Cards/MonoBehaviors/Melee/VFX/PullOutSaber_SC.asset
+- Assets/_CatsCards/Cards/MonoBehaviors/Melee/SFX/PullOutSaber_SC.asset
 - Assets/_CatsCards/Cards/MonoBehaviors/Melee/Lightsaber.prefab
 - Assets/_CatsCards/Cards/ModCards.prefab
-- Assets/_CatsCards/Cards/MonoBehaviors/Melee/VFX/PullOutSaber_SE.asset
+- Assets/_CatsCards/Cards/MonoBehaviors/Melee/SFX/PullOutSaber_SE.asset
 - Assets/_CatsCards/Art/Texture2D/Lightsaber_Handle.png
 - Assets/_CatsCards/Cards/MonoBehaviors/Melee/A_Lightsaber.prefab
 Dependencies: []
